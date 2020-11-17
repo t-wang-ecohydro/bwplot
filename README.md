@@ -4,6 +4,12 @@ This repository contains files for `bwplot`, an R package for producing `ggplot`
 
 This package is under construction as part of UBC's STAT 545B course for the Winter 2020 semester.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![GitHub tag](https://img.shields.io/github/tag/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/tags/)
+
+[![GitHub commits](https://img.shields.io/github/commits-since/Naereen/StrapDown.js/v1.0.0.svg)](https://GitHub.com/Naereen/StrapDown.js/commit/)
+
 ## Available functions
 
 Current plotting functions are:
