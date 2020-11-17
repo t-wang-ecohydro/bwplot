@@ -1,3 +1,21 @@
+#' Title
+#'
+#' @param df A dataframe.
+#' @param x The data column within `df` for which means are to be calculated.
+#' @param by The data column within `df` containing the variable by which the columns are grouped.
+#' @param verbose Optional argument that, when `TRUE`, prints information on the function's progress.
+#' @param saveplot Optional argument to be used to save the output to file. It is the name the file should be saved as.
+#' @param ... Optional arguments for the mean calculation - see `mean()` for more information.
+#'
+#' @return A `ggplot` object containing a bar graph of mean `x` per `by` with specialized theme settings.
+#' @export
+#'
+#' @examples
+#' bw_mean_col(iris, Sepal.Width, Species)
+#' bw_mean_col(mtcars, mpg, cyl, trim = 0.2)
+#'
+#' @import dplyr
+#' @import ggplot2
 bw_mean_col <- function(df, x, by, verbose = FALSE, saveplot = "", ...) {
   # check input types
   if (verbose) {
