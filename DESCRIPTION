@@ -1,5 +1,5 @@
 Package: bwplot
-Title: What the Package Does (One Line, Title Case)
+Title: Make Aesthetically Tidy Plots
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Tracy",
@@ -14,7 +14,12 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 Imports: 
     dplyr,
-    ggplot2
+    ggplot2,
+    palmerpenguins,
+    magrittr
+VignetteBuilder: knitr

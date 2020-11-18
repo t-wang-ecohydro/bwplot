@@ -16,6 +16,8 @@
 #'
 #' @import dplyr
 #' @import ggplot2
+#' @importFrom magrittr "%>%"
+#'
 bw_mean_col <- function(df, x, by, verbose = FALSE, saveplot = "", ...) {
   # check input types
   if (verbose) {
@@ -25,7 +27,7 @@ bw_mean_col <- function(df, x, by, verbose = FALSE, saveplot = "", ...) {
     stop(deparse(substitute(df)), ' must be of class tbl_df.\n',
          'You have provided an object of class: ', class(df)[1])
   }
-  if (ncol(df %>% select({{ x }})) != 1) {
+  if (ncol(df %>% dplyr::select({{ x }})) != 1) {
     warning('Warning: More than one numerical column has been selected. Please verify your results.')
   }
 
@@ -40,20 +42,20 @@ bw_mean_col <- function(df, x, by, verbose = FALSE, saveplot = "", ...) {
   }
 
   output <- df %>%
-    group_by({{ by }}) %>%
-    summarise(mean = mean({{ x }}, ...)) %>%
-    ggplot() +
-    geom_col(aes(as.factor({{ by }}), mean, fill = as.factor({{ by }}))) +
-    xlab(deparse(substitute(by))) + ylab(deparse(substitute(x))) +
-    theme_bw() +
-    theme(panel.grid.major = element_blank(),
+    dplyr::group_by({{ by }}) %>%
+    dplyr::summarise(mean = mean({{ x }}, ...)) %>%
+    ggplot2::ggplot() +
+    ggplot2::geom_col(aes(as.factor({{ by }}), mean, fill = as.factor({{ by }}))) +
+    ggplot2::xlab(deparse(substitute(by))) + ggplot2::ylab(deparse(substitute(x))) +
+    ggplot2::theme_bw() +
+    ggplot2::theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
           legend.position = "none") +
-    ggtitle(paste("Mean", deparse(substitute(x)), "per", deparse(substitute(by))))
+    ggplot2::ggtitle(paste("Mean", deparse(substitute(x)), "per", deparse(substitute(by))))
 
   # save to file if applicable
   if (saveplot != "") {
-    output + ggsave(paste(saveplot))
+    output + ggplot2::ggsave(paste(saveplot))
     if (verbose) {
       print("Plot saved as", saveplot)
     }
