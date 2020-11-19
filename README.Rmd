@@ -192,7 +192,9 @@ use_pkgdown()
 pkgdown::build_site()
 ```
 
-And lo and behold! My package now has a website that can be viewed [here](file:///C:/Users/Tracy/Documents/Uni/UBC%202020-2021/STAT%20545B/bwplot/docs/index.html).
+And lo and behold! My package now has all the materials for a website in the `docs` folder.
 
-![Here's what that looked like right after the website came up.](man/figures/A2_pkgdown.png)
+Using GitHub Pages, I set the `docs` folder as the source, but at the time of this writing, GitHub has been unable to render the website so I can't provide a URL to it here.
+
+![Here's what that looked like when I ran the command.](man/figures/A2_pkgdown.png)
 
