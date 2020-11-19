@@ -1,5 +1,5 @@
 ---
-title: "how-to-use"
+title: "Using `bwplot`: the whys and hows"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{how-to-use}
@@ -14,11 +14,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(bwplot)
+```{r setup, echo = FALSE}
+suppressPackageStartupMessages(library(bwplot)) 
+suppressPackageStartupMessages(library(ggplot2)) 
+suppressPackageStartupMessages(library(dplyr)) 
 ```
-
-# Using `bwplot`: the whys and hows
 
 Generating graphs for that big report? Are you tired of constantly having to change your plot backgrounds and panels from that gaudy `ggplot` default? Do your code chunks look like the same `theme()` calls over and over, and you can barely keep track of what variables you were even plotting in the first place? `bw_plot` may be just the thing for you!
 
@@ -58,4 +58,4 @@ bw_mean_col(mtcars, mpg, cyl) + scale_fill_brewer(palette = "Dark2")
 
 
 
-(I went into full "market my creation like my life depends on it" mode please don't deduct marks for my super casual tone in this vignette :persevere: )
+(I went into full "market my creation like my life depends on it" mode please don't deduct marks for my super casual tone in this vignette :( )

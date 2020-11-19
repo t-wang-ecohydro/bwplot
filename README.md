@@ -65,11 +65,22 @@ bw_mean_col(mtcars, mpg, cyl, na.rm=TRUE)
 
 ## Available functions
 
-Current plotting functions are: 1. `bw_mean_col`: produces a
-`geom_col()` plot with the following defaults: - Background:
-`theme_bw()` - Gridlines: none - Legend: none - Fill: unique color per
-column - Axis labels: default data table column names 2. (to be
-completed in later assignments?)
+Current plotting functions are:
+
+1.  `bw_mean_col`: produces a `geom_col()` plot with the following
+    defaults:
+
+<!-- end list -->
+
+  - Background: `theme_bw()`
+  - Gridlines: none
+  - Legend: none
+  - Fill: unique color per column
+  - Axis labels: default data table column names
+
+<!-- end list -->
+
+2.  (to be completed in later assignments?)
 
 ## How it was made (this part is for Assignment 2)
 
@@ -78,8 +89,8 @@ completed in later assignments?)
 The first step is to create the package. This was done
 using`create_package()`, as shown in the screenshot below:
 
-[I took this right before restarting my R
-session](man/figures/A2_createpackage.png)
+![I took this right before restarting my R
+session.](man/figures/A2_createpackage.png)
 
 `bwplot` is the name of my package. An `R` folder for functions,
 `NAMESPACE` file and `DESCRIPTION` file were automatically generated.
@@ -108,10 +119,10 @@ matching test file. (I got tired of taking screenshots by this point,
 sorry\!) I took my function from Assignment 1 and pasted it into the new
 file.
 
-### ROxygen comments
+### Roxygen comments
 
-In RStudio, I navigated to my function and used “Insert ROxygen
-Skeleton” to generate a ROxygen comment section. Then I filled in the
+In RStudio, I navigated to my function and used “Insert Roxygen
+Skeleton” to generate a Roxygen comment section. Then I filled in the
 title, parameters, and additional information about my function. I used
 `@export` to indicate that this function is meant to be public (it’s the
 main feature of my package after all), and added package dependencies
@@ -142,7 +153,7 @@ use_package("palmerpenguins")
 
 This updated the `DESCRIPTION` file to include these dependencies. When
 I used `document()`, the `NAMESPACE` file was automatically updated as
-well. In the ROxygen comment section of my function, I added my package
+well. In the Roxygen comment section of my function, I added my package
 dependencies:
 
 ``` r
@@ -158,7 +169,7 @@ use_pipe()
 
 But when I ran `check()`, I got an error stating that the dependency on
 the `magrittr` package was not needed, so I ended up doing it the other
-way by using `use_package("magrittr")` and then editing the ROxygen
+way by using `use_package("magrittr")` and then editing the Roxygen
 comment.
 
 ``` r
@@ -204,9 +215,10 @@ dataset as `palmerpenguins::penguins`).
 ### Checks
 
 Throughout the package creation process, I was constantly running
-`check()` to make sure that everything was working\! At the very bottom
-section of this readme is what my most recent check looks like (it’s a
-bit of an eyeful so I’m pushing it aside to move on to other sections).
+`check()` to make sure that everything was working\! Here’s the last
+section of what my most recent check looked like.
+
+![It ain’t pretty, but it’s passing.](man/figures/A2_check.png)
 
 ### Readme and vignette
 
@@ -224,9 +236,13 @@ on RStudio.
 
 ### Optionals:
 
+Badges: These were copied from other repositories where I could find
+relevant ones.
+
 Code of conduct: I generated the file using `use_code_of_conduct()`.
 
-News:
+News: This was created using `use_news_md()`. After making the file, I
+added a line about my package’s release.
 
 Package website: I used the following commands in the console:
 
@@ -238,9 +254,5 @@ pkgdown::build_site()
 And lo and behold\! My package now has a website that can be viewed
 [here](file:///C:/Users/Tracy/Documents/Uni/UBC%202020-2021/STAT%20545B/bwplot/docs/index.html).
 
-### Now here comes that `check()` output
-
-``` r
-# library(devtools)
-# check()
-```
+![Here’s what that looked like right after the website came
+up.](man/figures/A2_pkgdown.png)

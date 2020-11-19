@@ -59,12 +59,15 @@ bw_mean_col(mtcars, mpg, cyl, na.rm=TRUE)
 ## Available functions
 
 Current plotting functions are:
+
 1. `bw_mean_col`: produces a `geom_col()` plot with the following defaults:
+
   - Background: `theme_bw()`
   - Gridlines: none
   - Legend: none
   - Fill: unique color per column
   - Axis labels: default data table column names
+  
 2. (to be completed in later assignments?)
 
 
@@ -74,7 +77,7 @@ Current plotting functions are:
 
 The first step is to create the package. This was done using`create_package()`, as shown in the screenshot below:
 
-[I took this right before restarting my R session](man/figures/A2_createpackage.png)
+![I took this right before restarting my R session.](man/figures/A2_createpackage.png)
 
 `bwplot` is the name of my package. An `R` folder for functions, `NAMESPACE` file and `DESCRIPTION` file were automatically generated. 
 
@@ -95,9 +98,9 @@ use_r("bw_mean_col")
 ```
 This created `bw_mean_col.R` and the also prompted me to create a matching test file. (I got tired of taking screenshots by this point, sorry!) I took my function from Assignment 1 and pasted it into the new file.
 
-### ROxygen comments
+### Roxygen comments
 
-In RStudio, I navigated to my function and used "Insert ROxygen Skeleton" to generate a ROxygen comment section. Then I filled in the title, parameters, and additional information about my function. I used `@export` to indicate that this function is meant to be public (it's the main feature of my package after all), and added package dependencies using `@import` (see the next section). For this part of my package creation, I edited my R file manually.
+In RStudio, I navigated to my function and used "Insert Roxygen Skeleton" to generate a Roxygen comment section. Then I filled in the title, parameters, and additional information about my function. I used `@export` to indicate that this function is meant to be public (it's the main feature of my package after all), and added package dependencies using `@import` (see the next section). For this part of my package creation, I edited my R file manually.
 
 I called `document()` to save my changes. Now when I use `?bw_mean_col` I can see a basic description of what my function does.
 
@@ -116,7 +119,7 @@ use_package("ggplot2")
 use_package("palmerpenguins")
 ```
 
-This updated the `DESCRIPTION` file to include these dependencies. When I used `document()`, the `NAMESPACE` file was automatically updated as well. In the ROxygen comment section of my function, I added my package dependencies:
+This updated the `DESCRIPTION` file to include these dependencies. When I used `document()`, the `NAMESPACE` file was automatically updated as well. In the Roxygen comment section of my function, I added my package dependencies:
 
 ```r
 #' @import dplyr
@@ -128,7 +131,7 @@ For the `%>%` piping function, I tried the following:
 ```r
 use_pipe()
 ```
-But when I ran `check()`, I got an error stating that the dependency on the `magrittr` package was not needed, so I ended up doing it the other way by using `use_package("magrittr")` and then editing the ROxygen comment.
+But when I ran `check()`, I got an error stating that the dependency on the `magrittr` package was not needed, so I ended up doing it the other way by using `use_package("magrittr")` and then editing the Roxygen comment.
 
 ```r
 #' @importFrom magrittr "%>%"
@@ -160,7 +163,9 @@ Because some of my tests use the `penguins` dataset from `palmerpenguins`, I had
 
 ### Checks
 
-Throughout the package creation process, I was constantly running `check()` to make sure that everything was working! At the very bottom section of this readme is what my most recent check looks like (it's a bit of an eyeful so I'm pushing it aside to move on to other sections).
+Throughout the package creation process, I was constantly running `check()` to make sure that everything was working! Here's the last section of what my most recent check looked like.
+
+![It ain't pretty, but it's passing.](man/figures/A2_check.png)
 
 ### Readme and vignette
 
@@ -174,9 +179,11 @@ This generated a `README.Rmd` file (the readme) and a `how-to-use.Rmd` file (the
 
 ### Optionals:
 
+Badges: These were copied from other repositories where I could find relevant ones.
+
 Code of conduct: I generated the file using `use_code_of_conduct()`. 
 
-News: 
+News: This was created using `use_news_md()`. After making the file, I added a line about my package's release.
 
 Package website: I used the following commands in the console:
 
@@ -184,11 +191,8 @@ Package website: I used the following commands in the console:
 use_pkgdown()
 pkgdown::build_site()
 ```
+
 And lo and behold! My package now has a website that can be viewed [here](file:///C:/Users/Tracy/Documents/Uni/UBC%202020-2021/STAT%20545B/bwplot/docs/index.html).
 
-### Now here comes that `check()` output
+![Here's what that looked like right after the website came up.](man/figures/A2_pkgdown.png)
 
-```{r}
-# library(devtools)
-# check()
-```

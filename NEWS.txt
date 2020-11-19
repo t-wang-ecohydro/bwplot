@@ -1,6 +1,0 @@
-bwplot v0.0.1 (Release date: 2020-11-18?)
-===============
-
-Changes: 
-* The structure of the package is nearing completion 
-* The first function, `bw_mean_col`, is complete
