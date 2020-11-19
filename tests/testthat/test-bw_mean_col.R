@@ -6,25 +6,23 @@ test_that("Function produces a ggplot object", {
 })
 
 test_that("Plot mapping matches provided input", {
-  it <- bw_mean_col(iris, Sepal.Width, Species)
   # x (horizontal axis): factorized form of `by` argument
-  expect_equal(as.character(it$layers[[1]]$mapping$x[[2]][[2]][[2]]), "Species")
+  expect_equal(as.character(bw_mean_col(iris, Sepal.Width, Species)$layers[[1]]$mapping$x[[2]][[2]][[2]]), "Species")
   # y (vertical axis): because of summarise() prior to plotting, we can't  see the original column name
-  expect_equal(as.character(it$layers[[1]]$mapping$y[[2]]), "mean")
+  expect_equal(as.character(bw_mean_col(iris, Sepal.Width, Species)$layers[[1]]$mapping$y[[2]]), "mean")
   # fill: factorized form of `by` argument - indices for "fill" and "x" are extra long because of factorization
-  expect_equal(as.character(it$layers[[1]]$mapping$fill[[2]][[2]][[2]]), "Species")
+  expect_equal(as.character(bw_mean_col(iris, Sepal.Width, Species)$layers[[1]]$mapping$fill[[2]][[2]][[2]]), "Species")
 })
 
 test_that("Plot labels match provided input", {
-  pt <- bw_mean_col(palmerpenguins::penguins, bill_depth_mm, island)
   # Plot title
-  expect_identical(pt$labels$title, "Mean bill_depth_mm per island")
+  expect_identical(bw_mean_col(palmerpenguins::penguins, bill_depth_mm, island)$labels$title, "Mean bill_depth_mm per island")
   # y axis label
-  expect_identical(pt$labels$y, "bill_depth_mm")
+  expect_identical(bw_mean_col(palmerpenguins::penguins, bill_depth_mm, island)$labels$y, "bill_depth_mm")
   # x axis label
-  expect_identical(pt$labels$x, "island")
+  expect_identical(bw_mean_col(palmerpenguins::penguins, bill_depth_mm, island)$labels$x, "island")
   # fill label (not displayed in plot)
-  expect_identical(pt$labels$fill, "as.factor(island)")
+  expect_identical(bw_mean_col(palmerpenguins::penguins, bill_depth_mm, island)$labels$fill, "as.factor(island)")
 })
 
 test_that("Plot background is white", {

@@ -1,4 +1,5 @@
-#' Title
+#' Simple bar graph
+#' @description Create a color-coded bar graph.
 #'
 #' @param df A dataframe.
 #' @param x The data column within `df` for which means are to be calculated.

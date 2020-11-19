@@ -2,7 +2,7 @@
 % Please edit documentation in R/bw_mean_col.R
 \name{bw_mean_col}
 \alias{bw_mean_col}
-\title{Title}
+\title{Simple bar graph}
 \usage{
 bw_mean_col(df, x, by, verbose = FALSE, saveplot = "", ...)
 }
@@ -23,7 +23,7 @@ bw_mean_col(df, x, by, verbose = FALSE, saveplot = "", ...)
 A \code{ggplot} object containing a bar graph of mean \code{x} per \code{by} with specialized theme settings.
 }
 \description{
-Title
+Create a color-coded bar graph.
 }
 \examples{
 bw_mean_col(iris, Sepal.Width, Species)
